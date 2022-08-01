@@ -7,10 +7,18 @@ import Editor from "./components/Editor"
 import "./style.css"
 
 export default function App() {
-    const [notes, setNotes] = React.useState([]);
+    const [notes, setNotes] = React.useState(()=>{
+        return JSON.parse(localStorage.getItem("notes"))||[]
+    });
     const [currentNoteId, setCurrentNoteId] = React.useState(
         (notes[0] && notes[0].id) || ""
     )
+
+    // const [state,setState] = React.useState(()=>console.log(111))
+
+    React.useEffect(()=>{
+        localStorage.setItem("notes",JSON.stringify(notes));
+    })
 
     function createNewNote() {
         const newNote = {

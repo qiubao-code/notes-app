@@ -1,4 +1,4 @@
-export const data = [
+const data = [
     {
         id: 1,
         body: `### This just in!
@@ -21,3 +21,4 @@ Here's a division 👆`,
     { id: 5, body: `d` },
     { id: 6, body: `e` },
 ]
+export default data;
